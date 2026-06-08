@@ -1,0 +1,83 @@
+-------------------------------------------------------------
+-- Ime i prezime:
+-- Broj indeksa:
+-- Grupa na vežbama:
+-- Asistent:
+-------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.ALL;
+
+entity lprs1_zad3 is
+	port (	
+				iCLK	  : in  std_logic;
+				iRST    : in  std_logic;
+				iRUN    : in  std_logic;
+				
+				oRED    : out std_logic;
+				oYELLOW : out std_logic;
+				oGREEN  : out std_logic;
+				
+				oDIS    : out std_logic_vector(1 downto 0);
+				o7SEGM  : out std_logic_vector(6 downto 0)
+		);
+end entity;
+
+architecture Behavioral of lprs1_zad3 is
+
+type tSTATE is (IDLE, RED,  YELLOW, GREEN, ERROR);
+signal sSTATE, sNEXT_STATE : tSTATE;
+
+signal sRED_UNITS_CNT	: std_logic_vector(3 downto 0);
+signal sRED_TENS_CNT		: std_logic_vector(3 downto 0);
+signal sRED_PREV_CNT		: std_logic_vector(3 downto 0);
+signal sRED_TENS_EN		: std_logic;
+signal sRED_DONE			: std_logic;
+
+signal sGREEN_UNITS_CNT	: std_logic_vector(3 downto 0);
+signal sGREEN_TENS_CNT	: std_logic_vector(3 downto 0);
+signal sGREEN_PREV_CNT	: std_logic_vector(3 downto 0);
+signal sGREEN_TENS_EN	: std_logic;
+signal sGREEN_DONE		: std_logic;
+
+constant cSECOND			: std_logic_vector(23 downto 0):="101101110001101100000000"; --  --000000000000000000001100 101101110001101100000000
+
+signal sRED_TIMER			: std_logic_vector(23 downto 0);
+signal sRED_COUNT_EN		: std_logic;
+
+signal sGREEN_TIMER		: std_logic_vector(23 downto 0);
+signal sGREEN_COUNT_EN	: std_logic;
+
+signal sYELLOW_CNT		: std_logic_vector(23 downto 0);
+signal sYELLOW_TC			: std_logic;
+
+signal sRUN					: std_logic;
+signal sCURRENT_STATE	: std_logic;
+signal sPREV_STATE		: std_logic;
+
+-- ==================== PRIKAZ NA DISPLAJU ====================
+signal sTC					: std_logic;  -- dozvole za displej
+signal sDIS_SEL 			: std_logic_vector(1 downto 0);
+signal sDIS_CNT 			: std_logic_vector(14 downto 0);
+constant cDIS_MAX			: std_logic_vector(14 downto 0) := "111111111111111";
+
+signal sDISPLAY_0			: std_logic_vector(6 downto 0);
+signal sDISPLAY_1			: std_logic_vector(6 downto 0);
+signal sDISPLAY_2			: std_logic_vector(6 downto 0);
+signal sDISPLAY_3			: std_logic_vector(6 downto 0);
+
+-- ukoliko je brojač neaktivan da li se njegova vrijednost šalje na prikaz ili je displej isključen
+signal sRED_TENS_DISPLAY	: std_logic_vector(3 downto 0); 
+signal sRED_UNITS_DISPLAY	: std_logic_vector(3 downto 0); 
+signal sGREEN_TENS_DISPLAY	: std_logic_vector(3 downto 0);
+signal sGREEN_UNITS_DISPLAY	: std_logic_vector(3 downto 0);
+
+
+begin
+
+
+
+
+
+
+end Behavioral;
